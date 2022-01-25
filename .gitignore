@@ -7,3 +7,4 @@ faucet*
 deploy
 .test*
 .vscode/
+integration_tests/compiled/
