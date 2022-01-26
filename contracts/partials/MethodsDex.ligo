@@ -138,7 +138,7 @@ function token_to_token_route(
       Swap(params) -> {
         assert_with_error(
           params.deadline >= Tezos.now,
-          err_swap_outdated);
+          err_action_outdated);
 
         const first_swap : swap_slice_type =
           case List.head_opt(params.swaps) of
@@ -202,7 +202,7 @@ function invest_liquidity(
       Invest(params) -> {
         assert_with_error(
           params.deadline >= Tezos.now,
-          err_swap_outdated);
+          err_action_outdated);
 
         var pair : pair_type := get_pair(params.pair_id, s);
 
@@ -274,7 +274,7 @@ function divest_liquidity(
       Divest(params) -> {
         assert_with_error(
           params.deadline >= Tezos.now,
-          err_swap_outdated);
+          err_action_outdated);
 
         var pair : pair_type := get_pair(params.pair_id, s);
 
