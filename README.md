@@ -43,6 +43,14 @@ cd quipuswap-token2token-core && npm install
 
 - Configure `env.js` if needed.
 
+- Install Python (for testing)
+
+- Install Python packages (for testing):
+
+```
+pip install pytezos pytest
+```
+
 # Quick Start
 
 ```
@@ -88,14 +96,10 @@ Addresses of deployed contracts are displayed in terminal. At this stage, Dex is
 
 # Testing
 
-If you'd like to run tests on the local environment, you might want to run local node for Tezos using the following command:
+If you'd like to run tests, you can go with the command:
 
 ```
-npm run start-sandbox
-```
-
-To execute tests run:
-
-```
-npm run test
+pip install pytezos pytest
+./integration_tests/build.sh
+pytest -s -v
 ```
