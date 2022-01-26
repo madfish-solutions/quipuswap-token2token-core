@@ -10,9 +10,6 @@ on:
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        standard: ["FA12", "FA2", "MIXED"]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -21,14 +18,11 @@ jobs:
       - name: Install Git
         run: sudo apt install git -y
       - name: Install modules
-        run: yarn
+        run: npm install
       - name: Run the ganache-cli in background
         run: ./ci/flextesa.sh
       - name: Compile the contracts
-        run: yarn compile
-        env:
-          EXCHANGE_TOKEN_STANDARD: ${{ matrix.standard }}
-          LIGO_VERSION: "0.9.0"
+        run: npm run compile
   scenario-tests:
     runs-on: ubuntu-latest
     steps:
