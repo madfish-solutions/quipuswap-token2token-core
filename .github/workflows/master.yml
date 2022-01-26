@@ -24,8 +24,6 @@ jobs:
         run: yarn
       - name: Run the ganache-cli in background
         run: ./ci/flextesa.sh
-      - name: Remove existing .env
-        run: rm .env
       - name: Compile the contracts
         run: yarn compile
         env:
